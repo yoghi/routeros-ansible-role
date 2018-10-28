@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# download dir
+temp/
+
+# log file
+expect.log

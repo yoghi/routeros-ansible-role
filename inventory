@@ -1,0 +1,2 @@
+[routeros]
+ap ansible_host=127.0.0.1 ansible_user="routeradmin+cet" ansible_pass='' ansible_port=22122

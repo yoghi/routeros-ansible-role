@@ -30,7 +30,7 @@ qemu-img create -f qcow2 -b chr.vdi chr.qcow2
 
 # Start RouterOS
 qemu-system-x86_64 -hda chr.qcow2 -nographic -device e1000,netdev=net0 \
-    -netdev user,id=net0,net=192.168.254.0/24,dhcpstart=192.168.254.10,hostfwd=tcp:127.0.0.1:8728-:8728,hostfwd=tcp:127.0.0.1:22122-:22,hostfwd=tcp:127.0.0.1:22120-:20,hostfwd=tcp:127.0.0.1:22121-:21,hostfwd=tcp:127.0.0.1:22291-:8291 > /dev/null &
+    -netdev user,id=net0,net=192.168.254.0/24,dhcpstart=192.168.254.10,hostfwd=tcp:127.0.0.1:8728-:8728,hostfwd=tcp:127.0.0.1:22122-:22,hostfwd=tcp:127.0.0.1:23222-:3322,hostfwd=tcp:127.0.0.1:22121-:21,hostfwd=tcp:127.0.0.1:22291-:8291 > /dev/null &
 QEMU_PID=$!
 # cleanup() {
 # 	kill $QEMU_PID
@@ -61,8 +61,8 @@ key=$(cat ./temp/developer.key.pub)
 
 /usr/bin/expect security.tcl 22122 "$key"
 
-#ssh routeradmin+cet@127.0.0.1 -p 22122 -i ./temp/developer.key
-#ssh routeradmin+cet@127.0.0.1 -p 22122 -i ./temp/developer.key /export > myconfig.rsc
+#ssh routeradmin+cet@127.0.0.1 -p 22122 -i ./test/temp/developer.key
+#ssh routeradmin+cet@127.0.0.1 -p 22122 -i ./test/temp/developer.key /export > myconfig.rsc
 
 # Fire off Ansible
 # cd ..

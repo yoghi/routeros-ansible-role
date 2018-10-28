@@ -1,0 +1,65 @@
+# - name: "run command on remote devices: ip address print"
+#   routeros_command:
+#     commands: /ip address print
+#   register: result
+#   tags: [ "ip" ]
+
+# - debug:
+#     msg: "{{ result.stdout_lines }}"
+#   tags: [ "ip" ]
+
+- name: create scheduler reboot
+  routeros_command:
+    commands: 
+      - /system scheduler add disabled=yes interval=1s name=reboot-mt-on-demand policy=reboot,read,write,policy,test,password,sniff,sensitive start-date=jan/01/1970 start-time=00:00:00 on-event="/system scheduler disable reboot-mt-on-demand;/system reboot;"
+      - /system scheduler add disabled=yes interval=1s name=shutdown-mt-on-demand policy=reboot,read,write,policy,test,password,sniff,sensitive start-date=jan/01/1970 start-time=00:00:00 on-event="/system scheduler disable shutdown-mt-on-demand;/system shutdown;"
+  tags: [ "install" ]
+
+- name: "disable sensitive service"
+  routeros_command:
+    commands: /ip service disable telnet,ftp,www,api,api-ssl
+  tags: [ "install" ]
+
+- name: "change default ssh port"
+  routeros_command:
+    commands: /ip service set ssh port=3322
+  tags: [ "install" ]
+
+- name: "disable bandwidth test server"
+  routeros_command:
+    commands: /tool bandwidth-server set enabled=no 
+  tags: [ "install" ]
+
+- name: "disable dns cache"
+  routeros_command:
+    commands: /ip dns set allow-remote-requests=no
+  tags: [ "install" ]
+
+- name: "ssh strong key"
+  routeros_command:
+    commands: /ip ssh set strong-crypto=yes
+  tags: [ "install" ]
+
+- name: "no login with password"
+  routeros_command:
+    commands: /ip ssh set always-allow-password-login=no
+  tags: [ "install" ]
+
+  
+
+# qui va fatto il firewall setup
+
+# bisogna decire quale interfaccia 
+#/tool mac-server set allowed-interface-list=none
+#/tool mac-server print
+  
+
+# - name: attiva scheduler
+#   routeros_command:
+#     commands: /system scheduler enable reboot-mt-on-demand
+#   tags: [ "reboot" ]
+
+# - name: attiva scheduler
+#   routeros_command:
+#     commands: /system scheduler enable shutdown-mt-on-demand
+#   tags: [ "shutdown" ]

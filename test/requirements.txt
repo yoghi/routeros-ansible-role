@@ -1,3 +1,4 @@
 setuptools == 40.5.0
 ansible >= 2.7.1
 librouteros == 2.1.1 
+ansible-lint >= 3.5.1

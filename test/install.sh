@@ -1,2 +1,2 @@
 #!/bin/bash
-ansible-playbook -i inventory routeros.yml --tags install -vvv
+ansible-playbook -i inventory routeros.yml --tags install

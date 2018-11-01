@@ -15,7 +15,7 @@
 
 - name: create scheduler reboot
   routeros_command:
-    commands: 
+    commands:
       - /system scheduler add disabled=yes interval=1s name=reboot-mt-on-demand policy=reboot,read,write,policy,test,password,sniff,sensitive start-date=jan/01/1970 start-time=00:00:00 on-event="/system scheduler disable reboot-mt-on-demand;/system reboot;"
       - /system scheduler add disabled=yes interval=1s name=shutdown-mt-on-demand policy=reboot,read,write,policy,test,password,sniff,sensitive start-date=jan/01/1970 start-time=00:00:00 on-event="/system scheduler disable shutdown-mt-on-demand;/system shutdown;"
   tags: [ "install" ]
@@ -38,7 +38,7 @@
 
 - name: "disable bandwidth test server"
   routeros_command:
-    commands: /tool bandwidth-server set enabled=no 
+    commands: /tool bandwidth-server set enabled=no
   tags: [ "install" ]
 
 - name: "disable dns cache"
@@ -66,14 +66,14 @@
 
 # qui va fatto il firewall setup
 # ensure this is at the top of the rule list
-# /ip firewall filter add action=accept chain=input comment="allow admin access to router from authorized clients" dst-port={{ routeros_ssh_port }},8888,8291 in-interface-list=!WAN protocol=tcp 
+# /ip firewall filter add action=accept chain=input comment="allow admin access to router from authorized clients" dst-port={{ routeros_ssh_port }},8888,8291 in-interface-list=!WAN protocol=tcp
 
-# bisogna decire quale interfaccia 
+# bisogna decire quale interfaccia
 #/tool mac-server set allowed-interface-list=none
 #/tool mac-server print
 
 - import_tasks: reboot.yml
   tags: [ "reboot" ]
 
-- import_tasks: shutdown.yml 
+- import_tasks: shutdown.yml
   tags: [ "shutdown" ]

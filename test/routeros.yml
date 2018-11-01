@@ -1,5 +1,5 @@
 ---
-- name: Configure Router 
+- name: Configure Router
   hosts: routeros
 
   roles:

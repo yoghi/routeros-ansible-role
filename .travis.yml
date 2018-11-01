@@ -1,6 +1,8 @@
 # write me
 language: python
 
+sudo: required
+
 python:
   - 2.7
   - 3.3

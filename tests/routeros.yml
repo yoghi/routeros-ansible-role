@@ -3,4 +3,4 @@
   hosts: routeros
 
   roles:
-   - { name: "../../routeros-ansible-role" , tag: [ "base" ] }
+   - { name: "../../routeros-ansible-role",tag: [ "base" ] }

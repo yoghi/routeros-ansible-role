@@ -14,7 +14,7 @@ sleep 5
 
 expect -re "(.*)admin(.*)" 
 
-send "/user add name=\"routeradmin\" password=\"abra\" group=full\r"
+send "/user add name=\"routeradmin\" password=\"pAssw0rd!\" group=full\r"
 
 sleep 1
 

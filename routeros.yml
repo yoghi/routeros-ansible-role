@@ -4,6 +4,3 @@
 
   roles:
    - { name: "routeros-ansible-role" , tag: [ "base" ] }
-
-
-    

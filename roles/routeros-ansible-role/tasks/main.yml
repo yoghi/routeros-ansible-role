@@ -58,6 +58,12 @@
   when: routeros_disable_password_login
   tags: [ "install" ]
 
+- name: "bind ip for winbox"
+  routeros_command:
+    commands: /ip service set winbox address={{ routeros_secure_address }}
+  when: not routeros_disable_password_login
+  tags: [ "install" ]
+
 # qui va fatto il firewall setup
 # ensure this is at the top of the rule list
 # /ip firewall filter add action=accept chain=input comment="allow admin access to router from authorized clients" dst-port={{ routeros_ssh_port }},8888,8291 in-interface-list=!WAN protocol=tcp 

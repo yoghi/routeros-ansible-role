@@ -2,6 +2,7 @@ date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 shortdate: "{{ lookup('pipe', 'date +%Y%m%d') }}"
 
 # specific 
+routeros_secure_address: "10.0.0.0/24"
 routeros_ssh_port: 3322
 routeros_disable_password_login: True
 routeros_disable_old_cryptographic_login: True

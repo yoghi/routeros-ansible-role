@@ -6,7 +6,7 @@ set sshport [lindex $argv 0];
 
 log_file -a "expect.log"
 
-spawn ssh -v admin+cet@localhost -p $sshport
+spawn ssh -q admin+cet@localhost -p $sshport
 
 sleep 5
 

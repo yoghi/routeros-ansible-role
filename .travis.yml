@@ -40,6 +40,7 @@ before_script:
 
 script:
   - ansible-playbook -i inventory routeros.yml --tags install -vvv
+  - ansible-playbook -i inventory.secure routeros.yml --tags shutdown -vvv
 
 after_script:
   - killall qemu-system-x86_64

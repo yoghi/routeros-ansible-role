@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # config ssh
-echo "Host 127.0.0.1" > ~/.ssh/config
+echo "Host *" > ~/.ssh/config
 echo "\tStrictHostKeyChecking no" >> ~/.ssh/config
 echo "\tUserKnownHostsFile=/dev/null" >> ~/.ssh/config
 

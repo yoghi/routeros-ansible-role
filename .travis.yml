@@ -27,7 +27,7 @@ before_install:
   - test/travis.install.sh
 
 install: 
-  - pip install requirements.txt
+  - pip install -r requirements.txt
 
 script:
   - test/run_server.sh

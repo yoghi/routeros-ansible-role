@@ -1,0 +1,6 @@
+---
+- name: Configure Router 
+  hosts: routeros
+
+  roles:
+   - { name: "../../routeros-ansible-role" , tag: [ "base" ] }

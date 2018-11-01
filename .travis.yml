@@ -33,14 +33,14 @@ before_install:
   - test/travis.install.sh
 
 install: 
-  - pip install -r requirements.txt
+  - pip install -r test/requirements.txt
 
 before_script:
   - test/run_server.sh
 
 script:
-  - ansible-playbook -i inventory routeros.yml --tags install -vvv
-  - ansible-playbook -i inventory.secure routeros.yml --tags shutdown -vvv
+  - test/install.sh
+  - test/shutdown.sh
 
 after_script:
   - killall qemu-system-x86_64

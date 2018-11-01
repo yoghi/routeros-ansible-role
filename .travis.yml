@@ -20,8 +20,6 @@ matrix:
     - os: osx
   include:
     - os: linux
-    - os: osx
-      python: 2.7
 
 before_install:
   - test/travis.install.sh

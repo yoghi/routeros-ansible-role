@@ -8,7 +8,7 @@ set publicKey [lindex $argv 1];
 
 log_file -a "expect.log"
 
-spawn ssh -q admin+cet@localhost -p $sshport
+spawn ssh -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no admin+cet@localhost -p $sshport
 
 sleep 5
 

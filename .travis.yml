@@ -22,6 +22,12 @@ matrix:
   include:
     - os: linux
       python: 2.7
+    - os: linux
+      python: 3.3
+    - os: osx
+      python: 2.7
+    - os: osx
+      python: 3.3
 
 before_install:
   - test/travis.install.sh
@@ -29,8 +35,11 @@ before_install:
 install: 
   - pip install -r requirements.txt
 
-script:
+before_script:
   - test/run_server.sh
+
+script:
+  - ansible-playbook -i inventory routeros.yml --tags install -vvv
 
 after_script:
   - killall qemu-system-x86_64

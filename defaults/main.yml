@@ -1,3 +1,6 @@
+---
+# defaults file for routeros-ansible-role
+
 date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 shortdate: "{{ lookup('pipe', 'date +%Y%m%d') }}"
 

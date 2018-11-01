@@ -1,2 +1,16 @@
+# meta file for routeros-ansible-role
 ---
-dependencies:
+galaxy_info:
+  author: Stefano Tamagnini
+  company: 
+  description: Ansible role for configure basic mikrotik routeros device
+  license: GPLv3
+  min_ansible_version: 2.7.1
+  platforms:
+    - name: Ubuntu
+      versions:
+        - trusty
+  galaxy_tags:
+    - system
+    - routeros
+dependencies: []

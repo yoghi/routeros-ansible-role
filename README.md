@@ -1,4 +1,4 @@
-# routeros-ansible-role [![Build Status](https://travis-ci.com/yoghi/routeros-ansible-role.svg?branch=master)](https://travis-ci.com/yoghi/routeros-ansible-role)
+# routeros-ansible-role [![Build Status](https://travis-ci.com/yoghi/routeros-ansible-role.svg?branch=master)](https://travis-ci.com/yoghi/routeros-ansible-role) [![Ansible Galaxy](https://img.shields.io/badge/routeros-latest-blue.svg)](https://galaxy.ansible.com/yoghi/routeros_ansible_role)
 Ansible role configure basic mikrotik routeros device
 
 ## Dependencies

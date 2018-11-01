@@ -1,33 +1,9 @@
 ---
 - name: Configure Router 
   hosts: routeros
-  gather_facts: no
-  connection: network_cli
-
-  vars:
-    date: "{{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-    shortdate: "{{ lookup('pipe', 'date +%Y%m%d') }}"
 
   roles:
    - { name: "routeros-ansible-role" , tag: [ "base" ] }
 
-  # Mikrotik devices dont support WOL. If you shutdown the device, you will have to power on manually.
-  #tasks:
-
-    # timeout 30 secondi 
-    # - name: Run expect license
-    #   shell: |
-    #     set timeout 10 
-    #     spawn ssh -q admin@{{ ansible_host }} -p {{ ansible_port }}
-
-    #     expect "Do you want to see the software license? \[Y\/n\]: ?"
-    #     send "n\n"
-
-    #     exit 0
-    #   args:
-    #     executable: /usr/bin/expect
-    #   delegate_to: localhost
-    #   ignore_errors: true
-    #   tags: [ "install" ]
 
     

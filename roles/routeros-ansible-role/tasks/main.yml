@@ -8,6 +8,11 @@
 #     msg: "{{ result.stdout_lines }}"
 #   tags: [ "ip" ]
 
+- name: setup timezone
+  routeros_command:
+    commands: /system clock set time-zone-autodetect=no time-zone-name={{ routeros_timezone }}
+  tags: [ "install" ]
+
 - name: create scheduler reboot
   routeros_command:
     commands: 
@@ -15,14 +20,20 @@
       - /system scheduler add disabled=yes interval=1s name=shutdown-mt-on-demand policy=reboot,read,write,policy,test,password,sniff,sensitive start-date=jan/01/1970 start-time=00:00:00 on-event="/system scheduler disable shutdown-mt-on-demand;/system shutdown;"
   tags: [ "install" ]
 
-- name: "disable sensitive service"
+- name: "disable sensitive service [ telnet, ftp, www, api, api-ssl ]"
   routeros_command:
-    commands: /ip service disable telnet,ftp,www,api,api-ssl
+    commands: /ip service disable {{ item }}
+  with_items:
+   - telnet
+   - ftp
+   - www
+   - api
+   - api-ssl
   tags: [ "install" ]
 
 - name: "change default ssh port"
   routeros_command:
-    commands: /ip service set ssh port=3322
+    commands: /ip service set ssh port={{ routeros_ssh_port }}
   tags: [ "install" ]
 
 - name: "disable bandwidth test server"
@@ -38,28 +49,25 @@
 - name: "ssh strong key"
   routeros_command:
     commands: /ip ssh set strong-crypto=yes
+  when: routeros_disable_old_cryptographic_login
   tags: [ "install" ]
 
 - name: "no login with password"
   routeros_command:
     commands: /ip ssh set always-allow-password-login=no
+  when: routeros_disable_password_login
   tags: [ "install" ]
 
-  
-
 # qui va fatto il firewall setup
+# ensure this is at the top of the rule list
+# /ip firewall filter add action=accept chain=input comment="allow admin access to router from authorized clients" dst-port={{ routeros_ssh_port }},8888,8291 in-interface-list=!WAN protocol=tcp 
 
 # bisogna decire quale interfaccia 
 #/tool mac-server set allowed-interface-list=none
 #/tool mac-server print
-  
 
-# - name: attiva scheduler
-#   routeros_command:
-#     commands: /system scheduler enable reboot-mt-on-demand
-#   tags: [ "reboot" ]
+- import_tasks: reboot.yml
+  tags: [ "reboot" ]
 
-# - name: attiva scheduler
-#   routeros_command:
-#     commands: /system scheduler enable shutdown-mt-on-demand
-#   tags: [ "shutdown" ]
+- import_tasks: shutdown.yml 
+  tags: [ "shutdown" ]

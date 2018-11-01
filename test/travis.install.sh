@@ -2,8 +2,9 @@
 
 # config ssh
 echo "Host *" > ~/.ssh/config
-echo "\tStrictHostKeyChecking no" >> ~/.ssh/config
-echo "\tUserKnownHostsFile=/dev/null" >> ~/.ssh/config
+echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+echo "  UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+echo "" >> ~/.ssh/config
 
 if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     brew update

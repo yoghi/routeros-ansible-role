@@ -1,6 +1,7 @@
 # write me
 language: python
 
+dist: trusty
 sudo: required
 
 python:
@@ -19,9 +20,6 @@ matrix:
     - os: osx
   include:
     - os: linux
-      python: 2.7
-    - os: linux
-      python: 3.3
     - os: osx
       python: 2.7
 

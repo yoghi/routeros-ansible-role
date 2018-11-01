@@ -6,5 +6,6 @@ if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 fi
 
 if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
-    sudo apt install expect qemu-system
+    sudo apt-get update
+    sudo apt-get install expect qemu-system
 fi

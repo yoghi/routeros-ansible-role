@@ -1,7 +1,7 @@
 # write me
 language: python
 
-dist: trusty
+dist: bionic
 sudo: required
 
 env:

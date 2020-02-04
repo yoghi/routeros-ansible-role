@@ -13,11 +13,6 @@ env:
   #   - USE_NETWORK=false
 
 matrix:
-  allow_failures:
-    - os: osx
-      python: 3.3
-    - os: linux
-      python: 3.3
   include:
     - os: linux
       python: 3.3

@@ -108,3 +108,5 @@ temp/
 
 # log file
 expect.log
+bin
+include

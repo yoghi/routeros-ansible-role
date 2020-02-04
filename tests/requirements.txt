@@ -1,4 +1,4 @@
-setuptools == 45.1.0
+setuptools == 44.0.0
 ansible == 2.9.4
 librouteros == 3.0.0 
 ansible-lint == 4.2.0

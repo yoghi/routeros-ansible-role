@@ -43,7 +43,7 @@ echo Waiting for RouterOS to boot...
 python -c "import librouteros
 while True:
     try: librouteros.connect('127.0.0.1','admin','')
-    except librouteros.exceptions.ConnectionError: continue
+    except (librouteros.exceptions.ConnectionError, librouteros.exceptions.ConnectionRefusedError): continue
     else: break"
 echo ...DONE
 

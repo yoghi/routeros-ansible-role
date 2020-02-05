@@ -3,3 +3,4 @@ ansible == 2.9.4
 librouteros == 3.0.0 
 ansible-lint == 4.2.0
 paramiko == 2.7.1 
+chainmap == 1.0.3 ; python_version == '2.7'

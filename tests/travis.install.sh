@@ -14,5 +14,5 @@ fi
 
 if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
     sudo apt-get update -qq
-    sudo apt-get install expect qemu-system wput -qq
+    sudo apt-get install expect qemu-system qemu-utils wput -qq
 fi

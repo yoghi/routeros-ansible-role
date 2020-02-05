@@ -6,7 +6,7 @@ sudo: required
 
 env:
   global:
-    - ROUTEROS_VERSION=6.43.4
+    - ROUTEROS_VERSION=6.45.8
   # 6.43.4 6.45.8
   # matrix:
   #   - USE_NETWORK=true
@@ -33,9 +33,9 @@ script:
   # - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
   - ansible-playbook -i tests/inventory tests/routeros.yml --syntax-check
   # install
-  - ANSIBLE_CONFIG=tests/ansible.cfg ansible-playbook -i tests/inventory tests/routeros.yml --key-file $TRAVIS_BUILD_DIR/tests/temp/developer.key --tags install -vvvv
+  - ANSIBLE_CONFIG=tests/ansible.cfg ansible-playbook -i tests/inventory tests/routeros.yml --key-file tests/temp/developer.key --tags install -vvvv
   # shutdown 
-  - ANSIBLE_CONFIG=tests/ansible.cfg ansible-playbook -i tests/inventory.secure tests/routeros.yml --key-file $TRAVIS_BUILD_DIR/tests/temp/developer.key --tags shutdown -vvvv
+  - ANSIBLE_CONFIG=tests/ansible.cfg ansible-playbook -i tests/inventory.secure tests/routeros.yml --key-file tests/temp/developer.key --tags shutdown -vvvv
   # lint
   - ansible-lint tests/routeros.yml || true
 

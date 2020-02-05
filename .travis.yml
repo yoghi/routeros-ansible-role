@@ -6,8 +6,8 @@ sudo: required
 
 env:
   global:
-    - ROUTEROS_VERSION=6.45.8
-  # 6.43.4 
+    - ROUTEROS_VERSION=6.43.4
+  # 6.43.4 6.45.8
   # matrix:
   #   - USE_NETWORK=true
   #   - USE_NETWORK=false

@@ -56,7 +56,7 @@ echo ...DONE
 cd ..
 
 # developer private key
-yes y | ssh-keygen -t rsa -b 2048 -N "" -f ./temp/developer.key || true
+yes y | ssh-keygen -t rsa -b 2048 -N "" -f ./temp/developer.key -m PEM || true
 
 # https://www.tcl.tk/man/expect5.31/expect.1.html
 /usr/bin/expect preconf.tcl 22122

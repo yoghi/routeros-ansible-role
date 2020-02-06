@@ -57,24 +57,15 @@ echo ...DONE
 
 cd ..
 
-echo "$TRAVIS_PYTHON_VERSION"
-
-# developer private key
-if [ "$TRAVIS_PYTHON_VERSION" == "2.7" ];
-then 
-    yes y | ssh-keygen -t rsa -b 2048 -m PEM -N "" -f ./temp/developer.key || true
-else 
-    yes y | ssh-keygen -t rsa -b 2048 -N "" -f ./temp/developer.key || true
-fi
-
-cat ./temp/developer.key
+# travis non genera correttamente il nuovo formato openssh per paramiko 2.7.1
+# yes y | ssh-keygen -t rsa -b 2048 -N "" -f ./temp/developer.key || true
 
 # https://www.tcl.tk/man/expect5.31/expect.1.html
 /usr/bin/expect preconf.tcl 22122
 
 # chiave pubblica stub
-wput -v -p ./temp/developer.key.pub ftp://admin+cet:@localhost:22121/developer.key.pub -t 0 -q || true
+wput -v -p ./developer.key.pub ftp://admin+cet:@localhost:22121/developer.key.pub -t 0 -q || true
 
-key=$(cat ./temp/developer.key.pub)
+key=$(cat ./developer.key.pub)
 
 /usr/bin/expect security.tcl 22122 "$key"

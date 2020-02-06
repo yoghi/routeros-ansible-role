@@ -2,6 +2,8 @@
 
 cd ${0%/*}
 
+rm -rf temp/
+
 # Establish working directory
 mkdir -p temp/
 cd temp/
@@ -62,6 +64,8 @@ then
 else 
     yes y | ssh-keygen -t rsa -b 2048 -N "" -f ./temp/developer.key || true
 fi
+
+cat ./temp/developer.key
 
 # https://www.tcl.tk/man/expect5.31/expect.1.html
 /usr/bin/expect preconf.tcl 22122

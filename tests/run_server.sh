@@ -57,6 +57,8 @@ echo ...DONE
 
 cd ..
 
+echo "$TRAVIS_PYTHON_VERSION"
+
 # developer private key
 if [ "$TRAVIS_PYTHON_VERSION" == "2.7" ];
 then 

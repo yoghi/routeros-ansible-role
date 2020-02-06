@@ -56,7 +56,12 @@ echo ...DONE
 cd ..
 
 # developer private key
-yes y | ssh-keygen -t rsa -b 2048 -N "" -f ./temp/developer.key || true
+if [ "$TRAVIS_PYTHON_VERSION" == "2.7" ];
+then 
+    yes y | ssh-keygen -t rsa -b 2048 -m PEM -N "" -f ./temp/developer.key || true
+else 
+    yes y | ssh-keygen -t rsa -b 2048 -N "" -f ./temp/developer.key || true
+fi
 
 # https://www.tcl.tk/man/expect5.31/expect.1.html
 /usr/bin/expect preconf.tcl 22122

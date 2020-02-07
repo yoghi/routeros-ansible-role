@@ -1,3 +1,3 @@
-- name: attiva scheduler
+- name: shutdown device
   routeros_command:
-    commands: /system scheduler enable shutdown-mt-on-demand
+    commands: ":execute {/system shutdown};"

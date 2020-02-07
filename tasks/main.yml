@@ -13,13 +13,6 @@
     commands: /system clock set time-zone-autodetect=no time-zone-name={{ routeros_timezone }}
   tags: [ "install" ]
 
-- name: create scheduler reboot
-  routeros_command:
-    commands:
-      - /system scheduler add disabled=yes interval=1s name=reboot-mt-on-demand policy=reboot,read,write,policy,test,password,sniff,sensitive start-date=jan/01/1970 start-time=00:00:00 on-event="/system scheduler disable reboot-mt-on-demand;/system reboot;"
-      - /system scheduler add disabled=yes interval=1s name=shutdown-mt-on-demand policy=reboot,read,write,policy,test,password,sniff,sensitive start-date=jan/01/1970 start-time=00:00:00 on-event="/system scheduler disable shutdown-mt-on-demand;/system shutdown;"
-  tags: [ "install" ]
-
 - name: "disable sensitive service [ telnet, ftp, www, api, api-ssl ]"
   routeros_command:
     commands: /ip service disable {{ item }}

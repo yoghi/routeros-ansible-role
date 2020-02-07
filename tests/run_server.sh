@@ -58,7 +58,7 @@ echo ...DONE
 cd ..
 
 # travis non genera correttamente il nuovo formato openssh per paramiko 2.7.1
-# yes y | ssh-keygen -t rsa -b 2048 -N "" -f ./temp/developer.key || true
+#yes y | ssh-keygen -t rsa -b 2048 -N "" -f ./temp/developer.key || true
 
 # https://www.tcl.tk/man/expect5.31/expect.1.html
 /usr/bin/expect preconf.tcl 22122

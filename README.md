@@ -9,8 +9,8 @@ Ansible role configure basic mikrotik routeros device
 
 ## Dependencies
 
-- librouteros
-- python 3.6
+- librouteros 3.0.0 python 3.6
+- librouteros 2.4.0 python 2.7
 
 ## Variables
 

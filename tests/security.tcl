@@ -20,31 +20,31 @@ expect -re "(.*)admin(.*)"
 
 send "/user add name=\"routeradmin\" password=\"pAssw0rd!\" group=full\r"
 
-sleep 1
+sleep 5
 
 expect -re "(.*)admin(.*)"
 
 send "/file set developer.key.pub contents=\"$publicKey\"\r"
 
-sleep 1
+sleep 5
 
 expect -re "(.*)admin(.*)"
 
 send "/user ssh-keys import public-key-file=developer.key.pub user=routeradmin\r"
 
-sleep 1
+sleep 5
 
 expect -re "(.*)admin(.*)"
 
 send "/user ssh-keys print\r"
 
-sleep 1
+sleep 5
 
 expect -re "(.*)admin(.*)"
 
 send "/user remove admin\r"
 
-sleep 1
+sleep 5
 
 expect -re "(.*)admin(.*)"
 

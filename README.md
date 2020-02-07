@@ -8,6 +8,7 @@ Ansible role configure basic mikrotik routeros device
 ## Dependencies
 
 - librouteros
+- python 3.6
 
 ## Variables
 
@@ -26,6 +27,10 @@ Remember configure router os variable and install librouteros
 ### Author Information
 
 * Stefano Tamagnini
+
+### Contributors
+
+* [markwell-ch](https://github.com/markwell-ch) *replace schedulers with :execute commands*
 
 
 ### Feedback, bug-reports, requests, ...

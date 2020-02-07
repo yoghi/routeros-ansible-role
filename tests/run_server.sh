@@ -70,7 +70,8 @@ key=$(cat ./developer.key.pub)
 
 echo "$key"
 
-/usr/bin/expect security.tcl 22122 "$key"
+#/usr/bin/expect security.tcl 22122 "$key"
+/usr/bin/expect security.tcl 22122 ./developer.key.pub
 
 echo "exit: $?"
 

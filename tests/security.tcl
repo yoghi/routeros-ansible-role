@@ -4,7 +4,9 @@ set timeout 10
 
 set sshport [lindex $argv 0];
 
-set publicKey [lindex $argv 1];
+# set publicKey [lindex $argv 1];
+set publicKeyFile [lindex $argv 1];
+set publicKey [exec cat $publicKeyFile];
 
 log_file -a "expect.log"
 

@@ -64,7 +64,8 @@ cd ..
 /usr/bin/expect preconf.tcl 22122
 
 # chiave pubblica stub
-wput -v -p ./developer.key.pub ftp://admin+cet:@localhost:22121/developer.key.pub -t 0 -q || true
+#wput -v -p ./developer.key.pub ftp://admin+cet:@localhost:22121/developer.key.pub -t 0 -q || true
+scp -P 22122 developer.key.pub admin+cet@localhost:developer.key.pub
 
 key=$(cat ./developer.key.pub)
 

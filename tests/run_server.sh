@@ -68,4 +68,6 @@ wput -v -p ./developer.key.pub ftp://admin+cet:@localhost:22121/developer.key.pu
 
 key=$(cat ./developer.key.pub)
 
+echo "$key"
+
 /usr/bin/expect security.tcl 22122 "$key"

@@ -1,7 +1,7 @@
 setuptools == 44.0.0
 ansible == 2.9.4
 ansible-lint == 4.2.0
-paramiko == 2.6.0
+paramiko == 2.7.1
 
 librouteros == 3.0.0 ; python_version == '3.6'
 

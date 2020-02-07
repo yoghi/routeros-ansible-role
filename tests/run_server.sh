@@ -71,3 +71,9 @@ key=$(cat ./developer.key.pub)
 echo "$key"
 
 /usr/bin/expect security.tcl 22122 "$key"
+
+echo "exit: $?"
+
+log=$(cat expect.log)
+
+echo "$log"

@@ -24,7 +24,7 @@ sleep 1
 
 expect -re "(.*)admin(.*)"
 
-send "/file print developer.key.pub; /file set [find name="developer.key.pub"] contents=\"$publicKey\"\r"
+send "/file print developer.key.pub; /file set developer.key.pub contents=\"$publicKey\"\r"
 
 sleep 1
 
